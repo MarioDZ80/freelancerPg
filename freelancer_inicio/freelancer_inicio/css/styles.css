@@ -1,0 +1,277 @@
+:root{/*estos se le conoce como seudo selectores, se le llama asi porque no existen en el codigo html*/
+    /*estamos declarando paleta de colores*/
+    /*estos nombres son declarados por nosotros mismos*/
+    --blanco: #ffffff;
+    --oscuro: #212121; 
+    --primario: rgba(255,193,7,1);/*ejemplo de como se usa rgba*//*es el color que mas se va a utilizar*/
+    --secundario: hsla(186.75deg, 100%, 32.75%);/*ejemplo de hsla*/
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
+    
+    --fuente-principal: 3.8rem;/*se puede almacenar cualquier tipo de valor*/
+    /*son llamadas tambies variables en css*/
+}
+/*esto que se escribe en el html y body funciona para que el rem pueda ser mas sencillo de utilizar y mas compatibles 
+con distintas pantallas*/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;/*se usa para que no cresca el tamaño de la caja si agregamos padding muy bueno para que cuando nos pidas un proyecto se siertas dimenciones se haga sin mucho problema con el modelo caja */
+    scroll-snap-type: y mandatory;/*para definir un scroll o bajar con bolita en este caso verticalmente*/
+}
+/*Scroll snap*/
+.servicio,
+.navegacion-principal,
+.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;/*esto para que se detenga en esa secciones*/
+}
+*, *:before, *:after {/*selecciona todos los elementos y le aplica el box-sizing*/
+  box-sizing: inherit;
+}
+body{
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;/*esto sale d e la pagina de google fons para cambiar el estilo de las letras de todo el cuerpo*/
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);/*este es para crear el color de fondo con degradado*/
+}
+/*rem = 10px gracias a esto*/
+/*rem es un tipo de medida*/
+/*--------*/
+
+
+.sombra{
+    -webkit-box-shadow: 6px 6px 11px -6px rgba(107,107,107,1);/*esta se usa para chrome*/
+    -moz-box-shadow: 6px 6px 11px -6px rgba(107,107,107,1);/*mozilla*//*son compatibles aunque en este caso se pueden quitar sin ningun problema ya sin ellas el codigo aun tiene soporte*/
+    box-shadow: 6px 6px 11px -6px rgba(107,107,107,1);
+    background-color: var(--blanco);/*fondo*/
+    padding: 2rem;/*para separarlo un poco*/
+    border-radius: 1rem;/*para redondear las esquinas*/
+    }
+/*esto de h1, h2 y h3 es para crear un orden en la estructura del Css pero tambien*/
+/*poder establecer reglas para la tipografias*/
+
+h1{
+    font-size: 3.8rem;/*(38px)*/
+}
+h2{
+    font-size: 2.8rem;/*(28px)*/
+}
+h3{
+    font-size: 1.8;/*(18px)*/
+}
+
+h1,h2,h3{
+    text-align: center;
+}
+.titulo span{
+    font-size: 2rem;/*hace las letras mas pequeñas*/
+}
+.contenedor{/*es para centrar el contenido*/
+ max-width: 120rem;/*ancho*//*max-widt es para que tome como maximo 120 rem*/ /*tambien ayuda a que se vea mas fluido*/
+ margin-top: 0;/*arriba*/
+ margin-right: auto;/*derecha*/
+ margin-bottom: 0;/*abajo*/
+ margin-left: auto;/*izquierda*/
+
+ /*margin: 0 auto 0 auto;esto hace lo mismo que arriba pero resumido a una linea, funciona como un reloj 12,3,6,9*/
+}
+.boton{
+    background-color: var(--secundario);/*color del boton*/
+    color:var(--blanco);/*color letras*/
+    padding: 1rem 3rem;/*tamaño del boton*//*se coloca solo dos valores porque estos se repiten*/
+    margin-top: 1rem;/*separacion entre el boton y la direccion*/
+    font-size: 2rem;/*agrandar la fuente*/
+    text-decoration: none;/*quitar la linea que aparece*/
+    text-transform: uppercase;/*cambiar el texto a mayusculas*/
+    font-weight: bold;/*porner el texto en negrita*/
+    border-radius: .5rem;/*propiedad apra redondear las esquinas*/
+    width: 90%;/*para hacer que crezca el boton en dispositivos moviles*/
+    text-align: center;/*centrar texto*/
+    border: none;/*quitar el borde*/
+
+}
+@media (min-width: 768px){
+    .boton{
+        width:auto;
+    }
+    
+}
+
+.boton:hover{/*este es para areglar el bonton del formulario y hacer que aparezca la manito */
+ cursor: pointer;/*va hacer que aparezca la manito*/
+}
+
+/*Utilidades*/
+
+.w-sm-100{/*width del 100%, el boton tome el 100%*/
+width: 100%;
+}
+
+@media (min-width: 780px){
+    .w-sm-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+.nav-bg{
+    background-color: var(--secundario);/*background-color es para cambiar el color de una propiedad*/
+}
+.navegacion-principal {/*esto cambia el color de los enlaces*/
+   display: flex;/*para tener acceso a mas propiedades*/
+   flex-direction: column;/*para ordenarlo en una columna la navegacion*/
+  }
+
+@media (min-width: 768px){/*para resolucion de laptos*/
+    .navegacion-principal{
+      flex-direction: row;/*esto es para que se vea el menu vertical apartir de 768 px hasta abajo*/
+      justify-content: space-between ;/*permite mover el contenido horizontalmente*//*space-between lo distribuye*/
+    }
+}
+.navegacion-principal a{/*esto cambia el color de los enlaces*/
+    display: block;/*va hacer que tome todo el espacio*/
+    text-align: center;/*esto va a centrar el texto*/
+    color: var(--blanco);
+    text-decoration: none;/*para eliminar la linea que siempre tienen los enlaces*/
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;/*se color amarillo asi para que el color del menu de navegacion se vea mas grande y no tome solo las letras*/
+}
+.navegacion-principal a:hover{/*este es un efecto que permite que cuando coloquemos el puntero sobre el enlase se marque*/
+    background-color: var(--primario);
+    color: var(--oscuro);/*esto es para que las letras cambien de color a oscuro cuando se coloque el efecto(hover)*/
+}
+.hero{
+    background-image: url(../img/hero.jpg);/*esta propiedad nos ayuda agregar imagenes con css*/ /*url es una propiedad unica de background para poner la direccion de la imagen*/
+    background-repeat: no-repeat;/*para que no se repita la imagen cuando agrandamos el explorador*/
+    background-size: cover ;/*esta propiedad hace que la imagen hagarre todo el ancho sin que se recorte*/
+    height: 450px;
+    padding: 30px;
+    position: relative;/*se agrega al padre posicion relativa, parapoder agregar posicion al hijo*/
+    margin-bottom: 5rem;/*separar esto 20px de la caja de abajo*/
+
+}
+.contenido-hero{ /*esto sirve basicamente para colocar el contenido en una posicion que se requiera, se guia del mapa de coordenasdas del padre*/
+    position: absolute;
+    background-color: rgba(0, 0, 0, .4) ;/*esto es para crear la transparencia, va del 1 al 0 con mas intencidad*/
+    background-color: rgb(0 0 0 / 40%);/*tambien funciona, esta es una funcion nueva, por eso no hay problema en dejarlo o no, ya uqe en caso de queno detecte esta el explorarador usa la otra/
+    /*con esto tomamos el elemento en todos los lados es decir todo el mapa*/
+    top: 0;/*arriba*/
+    left: 0;/*izquierda*/
+    right: 0;/*derecha*/
+    bottom: 0;/*abajo*/
+
+    /*este codigo va a funcionar para poder ordenar tanto vertical como horizontalmente*/
+    display: flex;/*ordena de izq a derecha*/
+    flex-direction: column; /*ordena como una columna*/
+    align-items: center;/*centra el contenido*/
+    justify-content: center;/*lo colocar verticalmente en el centro*/
+}
+
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+}
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+/*servicios*/
+@media (min-width: 768px){/*esto dice que cuando llegue a esa cantidad de px hacer lo que esta en servicios*/
+    .servicios{
+        display:grid;/*nos agrega las propiedades de css grid*/
+        grid-template-columns: 33.3% 33.3% 33.3%; /*como en la pagina usamos tres columnas se crean tres columnas cada una del mismo tamaño, esto porque todas ocupan el 100%del lugar*/
+        grid-template-columns: 1fr 1fr 1fr;/*pueden hacerse haci tambien lo repartimos entre fracciones, es lo mismo que por porcentaje*/
+        grid-template-columns: repeat (3, 1fr); /*esto seria lo mismo ddice que cree 3 columnas de 1 fraccion*/
+        grid-template-rows: 20px 500px;/*parte superior 200px y la inferior 800px*/
+        column-gap: 1rem;/*para crear separacion entre las columnas*/
+        align-items: start;/*para acomodar los iconos redondos*/
+    }
+}
+
+.servicio{
+    /*centrar los iconos*/
+display: flex;
+flex-direction: column; /*para acomodarlo*/
+align-items: center;
+}
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;/*o puede ser 400*//*grosor de la fuente*/
+}
+.servicio p{
+    line-height: 3;/*propiedad para inter lineado**/
+    text-align: center;/*para centrar el texto*/
+}
+.servicio .iconos{
+    /*crear el circulo amarillo*/
+    height: 15rem;/*alto*/
+    width: 15rem;/*ancho*/
+    background-color: var(--primario);/*color*/
+    border-radius: 50%;/*crear la cricunferencia*/
+    /*aliniar los iconos*/
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+/*formulario*/
+.formulario{
+    background-color: var(--gris);/*para agregar un fondo negro al formulario*/
+    width: min( 60rem, 100%);/*esta nueva funcion 2 parametros *//*compara que valor es mas pequño y lo toma, es decir 60 rem o el 100% de la resolucion de la pantalla*/
+    margin: 0 auto;/*este margin 0 auto se debe usar cuando solo tengamos un elemento(tipo block)y cuyo padre no sea un display flex*/
+    padding: 2rem;
+    border-radius: 1rem;/*redondear esquinas*/
+}
+.formulario fieldset{/*para eliminar borde que tenia el formulario gracias al fieldset por defecto*/
+border: none;
+    
+}
+.formulario legend{
+    text-align: center;/*centrar texto*/
+    font-size: 1.8rem;/*tamaño letras*/
+    text-transform: uppercase;/*mayusculas*/
+    font-weight: 700;/*negrita*/
+    margin-bottom: 2rem;
+    color:var(--primario);/*color letra*/
+}
+
+@media (min-width: 768px){
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: 50% 50%;/*para dividir en 2 columnas del mismo tamaño*/
+        grid-template-rows: auto auto 20rem;/*filas*/
+        column-gap: 1rem;/*separacion de columnas*/
+        }
+    .campo:nth-child(3),
+    .campo:nth-child(4){/*este tipo de selector funciona para seleccionar uno de los campos sin necesidad de crear otra clase en este caso el que esta de numero 3*/
+        grid-column: 1 / 3 ;/*posicionar un elemento*//*de la columna 1 a la 3 se va a estender el elemento*/
+    }
+}
+
+.campo{
+    margin-bottom: 1rem;/*separacion*/
+
+}
+.campo label{
+    color: var(--blanco);/*color letra*/
+    font-weight: bold;/*negrita*/
+    margin-bottom: .5rem;
+    display: block;/*separa los campos*/
+}
+.campo textarea{
+    height: 18rem;
+}
+
+.input-text{
+    width: 100%; /*para que tome el espacio del 100%*/
+    border: none;/*quitamos un borde que tiene que se ve feo */
+    padding: 1.5rem;/*para que se vean un poco mas grandes*/
+    border-radius: .5rem;
+
+}
+.footer{
+    text-align: center;
+}
